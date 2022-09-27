@@ -1,0 +1,19 @@
+.App {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 169, 169);
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title {
+    width: fit-content;
+    align-self: center;
+    padding: 10px;
+}
+
+.Gambar {
+    width: 70px;
+    height: 70px;
+}
