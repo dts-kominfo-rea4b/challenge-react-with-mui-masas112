@@ -29,34 +29,38 @@ const theme = createTheme({
 const Contact = ({ data }) => {
     // Contact berisi foto, nama, telepon, dan email
     return (<>
-        <ThemeProvider theme={theme}>
-            <Box
-                sx={{
-                    bgcolor: 'background.paper',
-                    boxShadow: 1,
-                    borderRadius: 2,
-                    p: 3,
-                    minWidth: 1 / 2,
-                    margin: 3,
-                }}
-            >
+        {data.map((contact) => {
+            return (
+                <ThemeProvider theme={theme}>
+                    <Box
+                        sx={{
+                            bgcolor: 'background.paper',
+                            boxShadow: 1,
+                            borderRadius: 2,
+                            p: 3,
+                            minWidth: 1 / 2,
+                            margin: 3,
+                        }}
+                    >
 
-                <Grid container>
-                    <Grid xs={4}>
-                        <img className='Gambar' src={data.photo} alt={data.title} />
-                    </Grid>
-                    <Grid xs={8}>
-                        <Box sx={{ color: 'text.secondary', fontSize: 16 }}>{data.name}</Box>
-                        <Box sx={{ color: 'text.primary', fontSize: 14, fontWeight: 'medium' }}>
-                            {data.phone}
-                        </Box>
-                        <Box sx={{ color: 'text.secondary', display: 'inline', fontSize: 14 }}>
-                            {data.email}
-                        </Box>
-                    </Grid>
-                </Grid>
-            </Box>
-        </ThemeProvider>
+                        <Grid container>
+                            <Grid xs={4}>
+                                <img className='Gambar' src={contact.photo} alt={contact.title} />
+                            </Grid>
+                            <Grid xs={8}>
+                                <Box sx={{ color: 'text.secondary', fontSize: 16 }}>{contact.name}</Box>
+                                <Box sx={{ color: 'text.primary', fontSize: 14, fontWeight: 'medium' }}>
+                                    {contact.phone}
+                                </Box>
+                                <Box sx={{ color: 'text.secondary', display: 'inline', fontSize: 14 }}>
+                                    {contact.email}
+                                </Box>
+                            </Grid>
+                        </Grid>
+                    </Box>
+                </ThemeProvider>
+            );
+        })}
     </>);
 };
 

@@ -16,8 +16,8 @@ const App = () => {
 
   // Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
-  const handleClick = (newContact) => {
-    setNewContacts([...newContacts], { title: newContact });
+  const handleClick = (nama, pone, mail, poto) => {
+    setNewContacts([...newContacts, { name: nama, phone: pone, email: mail, photo: poto }]);
   }
   return (
     <div className="App">
@@ -28,16 +28,9 @@ const App = () => {
         </Grid>
         <Grid xs={2}></Grid>
         <Grid xs={6}>
-          {
-            contactsJSON.map((contact) => {
-              return (
-                <>
-                  <Contact data={contact} />
-                </>
 
-              )
-            })
-          }
+          <Contact data={contactsJSON} />
+
           <Contact data={newContacts} />
         </Grid>
       </Grid>

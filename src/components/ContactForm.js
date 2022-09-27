@@ -7,7 +7,10 @@ import { Button, TextField } from "@mui/material";
 import { useState } from "react";
 
 const ContactForm = ({ handleClick }) => {
-    const [newContact, setNewContact] = useState('');
+    const [name, setName] = useState('');
+    const [phone, setPhone] = useState('');
+    const [email, setEmail] = useState('');
+    const [photo, setPhoto] = useState('');
     // Form berisi name, phone, email, dan photo url
     // Buatlah state newContact berupa objek sesuai dengan data yang ada
 
@@ -17,24 +20,45 @@ const ContactForm = ({ handleClick }) => {
                 <TextField
                     label="Nama"
                     variant="filled"
-                    value={newContact}
+                    value={name}
                     onChange={(e) => {
-                        setNewContact(e.target.value);
+                        setName(e.target.value);
                     }}
                 />
             </div>
             <div>
-                <TextField label="Phone" />
+                <TextField
+                    label="Phone"
+                    variant="filled"
+                    value={phone}
+                    onChange={(e) => {
+                        setPhone(e.target.value);
+                    }}
+                />
             </div>
             <div>
-                <TextField label="Email" />
+                <TextField
+                    label="Email"
+                    variant="filled"
+                    value={email}
+                    onChange={(e) => {
+                        setEmail(e.target.value);
+                    }}
+                />
             </div>
             <div>
-                <TextField label="Photo Url" />
+                <TextField
+                    label="Photo Url"
+                    variant="filled"
+                    value={photo}
+                    onChange={(e) => {
+                        setPhoto(e.target.value);
+                    }}
+                />
             </div>
 
             <Button
-                onClick={() => { handleClick(newContact); setNewContact(''); }
+                onClick={() => { handleClick(name, phone, email, photo); }
                 }
             >
                 Add New</Button>
